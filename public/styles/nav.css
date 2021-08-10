@@ -1,0 +1,53 @@
+nav {
+  display: flex;
+  color: #ffff;
+  height: 120px;
+  background-color: #4056a1;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.box {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "Bungee", cursive;
+  font-size: xx-large;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.second-box {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 120px;
+  background-image: url("/images/asfalt-light.png");
+  background-color: #f5b800;
+}
+
+.left-box {
+  display: flex;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-word {
+  font-weight: 600;
+}
+
+.second-word {
+  font-weight: 300;
+}
+
+.arrows {
+  color: crimson;
+}

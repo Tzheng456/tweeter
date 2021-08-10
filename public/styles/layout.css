@@ -26,6 +26,12 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-nav {
-  font-family: "Bungee", cursive;
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: #f4f1ec;
+  position: relative;
+  top: 120px;
+  margin: auto;
+  width: 90%;
 }
