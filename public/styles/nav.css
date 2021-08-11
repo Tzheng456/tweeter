@@ -9,7 +9,9 @@ nav {
 
 .box {
   display: flex;
-  position: absolute;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
   left: 0;
   top: 0;
   right: 0;
