@@ -7,11 +7,15 @@
   color: #797979;
 }
 
+.new-tweet {
+  margin: 1em;
+}
+
 #tweet-text {
   font-weight: 300;
   width: 100%;
   background-color: #f4f1ec;
-  border-bottom: 5px solid #797979;
+  border-bottom: 4px solid #797979;
   outline: none;
   border-top: none;
   border-left: none;
@@ -20,6 +24,7 @@
 }
 
 .below-container {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   font-family: "Bungee", cursive;
