@@ -4,11 +4,12 @@ $(document).ready(function() {
     const textLength = this.value.length;
     const counter = $(this).siblings(".below-container").children(".counter");
 
+    counter.text(140 - textLength);
     if (counter.val() < 0) {
       counter.css("color", "red");
-    } else {
-      counter.css("color", "#797979");
     }
-    counter.text(140 - textLength);
+    if (counter.val() >= 0) {
+      counter.css("color", "#545149");
+    }
   });
 });
