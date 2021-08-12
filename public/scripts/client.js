@@ -17,11 +17,11 @@ $(() => {
   //takes a tweet object, returns an HTML string with data from the tweet object
   const createTweetElement = function(tweet) {
     const $tweet = `
-    <article class="tweet-container">
+    <article class="tweet">
       <div class="tweet-top">
-        <div class="top-left-box">
+        <div class="tweet-top-left-container">
           <img class="avatar" src=${escape(tweet.user.avatars)}></img>
-          <span class="user-icon">${escape(tweet.user.name)}</span>
+          <span class="username">${escape(tweet.user.name)}</span>
         </div>
         <span class="user-handle">${escape(tweet.user.handle)}</span>
       </div>
@@ -33,9 +33,9 @@ $(() => {
     escape(tweet.created_at)
   )}</span>
         <span>
-          <button class="response-buttons" type="submit"><i class="fas fa-solid fa-flag"></i></button>
-          <button class="response-buttons" type="submit"><i class="fas fa-solid fa-retweet"></i></button>
-          <button class="response-buttons" type="submit"><i class="fas fa-solid fa-heart"></i></button>
+          <button class="response-button" type="submit"><i class="fas fa-solid fa-flag"></i></button>
+          <button class="response-button" type="submit"><i class="fas fa-solid fa-retweet"></i></button>
+          <button class="response-button" type="submit"><i class="fas fa-solid fa-heart"></i></button>
         </span>
       </div>
     </article>`;

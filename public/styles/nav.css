@@ -21,7 +21,7 @@ nav {
   
 } */
 
-.second-box {
+.profile-container {
   display: flex;
   height: 400px;
   width: 100%;
@@ -33,7 +33,7 @@ nav {
   background-color: #f5b800;
 }
 
-.left-box {
+.new-tweet-icon {
   display: flex;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
@@ -45,10 +45,10 @@ nav {
   font-weight: 600;
 }
 
-.second-word {
+.rest-of-word {
   font-weight: 300;
 }
 
-.arrows {
+.arrows-icon {
   color: crimson;
 }
