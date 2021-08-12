@@ -37,6 +37,10 @@ body {
   width: 90%;
 }
 
+#tweets-container {
+  margin-bottom: 4em;
+}
+
 .tweet-container {
   display: flex;
   justify-content: center;
