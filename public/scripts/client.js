@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -5,19 +6,21 @@
  */
 $(() => {
   const renderTweets = function(tweets) {
+    $("#tweets-container").empty();
     for (let tweet of tweets) {
       $("#tweets-container").append(createTweetElement(tweet));
     }
-    $(".tweet-container").on("mouseenter", function(event) {
+
+    $(".tweet-container").on("mouseenter", function() {
       $(this).css("box-shadow", "7px 7px #d4d4d4");
     });
-    $(".tweet-container").on("mouseleave", function(event) {
+    $(".tweet-container").on("mouseleave", function() {
       $(this).css("box-shadow", "none");
     });
-    $(".response-buttons").on("mouseenter", function(event) {
+    $(".response-buttons").on("mouseenter", function() {
       $(this).css("color", "#f5b800");
     });
-    $(".response-buttons").on("mouseleave", function(event) {
+    $(".response-buttons").on("mouseleave", function() {
       $(this).css("color", "#2968cb");
     });
   };
@@ -42,7 +45,6 @@ $(() => {
       </div>`;
 
     const $tweet = $("<article>").addClass("tweet-container");
-    $tweet.empty();
 
     const tweetElement = $tweet.append(tweetHTML);
 
@@ -54,6 +56,7 @@ $(() => {
       renderTweets(data);
     });
   };
+
   loadTweets();
 
   const $tweetForm = $("#tweet-form");
@@ -61,8 +64,6 @@ $(() => {
     event.preventDefault();
     const serializedData = $(this).serialize();
 
-    $.post("/tweets/", serializedData);
+    $.post("/tweets/", serializedData).then(loadTweets);
   });
-
-  renderTweets(data);
 });

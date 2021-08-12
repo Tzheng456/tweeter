@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 $(document).ready(function() {
   // --- our code goes here ---
-  $("#tweet-text").on("input", function(event) {
+  $("#tweet-text").on("input", function() {
     const textLength = this.value.length;
     const counter = $(this).siblings(".below-container").children(".counter");
 
