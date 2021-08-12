@@ -96,3 +96,26 @@ body {
   border-right: none;
   resize: none;
 }
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    margin: 2em;
+  }
+
+  header {
+    /* width: 45%; */
+    float: left;
+    margin-right: 7em;
+    margin-top: 3em;
+    flex-shrink: 1;
+    flex-basis: 50%;
+  }
+
+  main {
+    /* width: 55%; */
+    float: right;
+    flex-shrink: 1;
+    flex-basis: 100%;
+  }
+}
