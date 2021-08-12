@@ -63,7 +63,19 @@ $(() => {
   $tweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
+    // console.log($("#tweet-text").val().length);
+    if ($("#tweet-text").val().length === 0) {
+      alert("Cannot submit empty tweet!");
+    }
 
-    $.post("/tweets/", serializedData).then(loadTweets);
+    if ($("#tweet-text").val().length > 140) {
+      alert("Message too long! Maximum character count: 140.");
+    }
+    if (
+      !($("#tweet-text").val().length === 0) &&
+      !($("#tweet-text").val().length > 140)
+    ) {
+      $.post("/tweets/", serializedData).then(loadTweets);
+    }
   });
 });
