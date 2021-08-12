@@ -73,16 +73,22 @@ $(() => {
   $tweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
-    // console.log($("#tweet-text").val().length);
+
     if (
       $("#tweet-text").val().length === 0 ||
       $("#tweet-text").val() === null
     ) {
-      alert("Cannot submit empty tweet!");
+      $("#too-long").slideUp();
+      $("#empty-input").slideUp();
+      $("#empty-input").text("Cannot submit empty tweet!").slideDown(1000);
     }
 
     if ($("#tweet-text").val().length > 140) {
-      alert("Message too long! Maximum character count: 140.");
+      $("#empty-input").slideUp();
+      $("#too-long").slideUp();
+      $("#too-long")
+        .text("Message too long! Maximum character count: 140.")
+        .slideDown(1000);
     }
     if (
       !($("#tweet-text").val().length === 0) &&

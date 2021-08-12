@@ -38,3 +38,13 @@
   outline: none;
   border: none;
 }
+
+.error-message {
+  display: none;
+  font-weight: 600;
+  color: red;
+  border: 5px solid red;
+  text-align: center;
+  margin-bottom: 2em;
+  padding: 5px;
+}
