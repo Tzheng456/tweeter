@@ -29,14 +29,18 @@ $(() => {
     const tweetHTML = `
       <div class="tweet-top">
         <div class="top-left-box">
-          <img class="avatar" src=${tweet.user.avatars}></img>
-          <span class="user-icon">${tweet.user.name}</span>
+          <img class="avatar" src=${escape(tweet.user.avatars)}></img>
+          <span class="user-icon">${escape(tweet.user.name)}</span>
         </div>
-        <span class="user-handle">${tweet.user.handle}</span>
+        <span class="user-handle">${escape(tweet.user.handle)}</span>
       </div>
-      <textarea class="display-text" disabled>${tweet.content.text}</textarea>
+      <textarea class="display-text" disabled>${escape(
+    tweet.content.text
+  )}</textarea>
       <div class="tweet-bottom">
-        <span class="time-posted">${timeago.format(tweet.created_at)}</span>
+        <span class="time-posted">${timeago.format(
+    escape(tweet.created_at)
+  )}</span>
         <span>
           <button class="response-buttons" type="submit"><i class="fas fa-solid fa-flag"></i></button>
           <button class="response-buttons" type="submit"><i class="fas fa-solid fa-retweet"></i></button>
@@ -49,6 +53,12 @@ $(() => {
     const tweetElement = $tweet.append(tweetHTML);
 
     return tweetElement;
+  };
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
   const loadTweets = function() {
