@@ -4,29 +4,19 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+//document ready then do callback
 $(() => {
+  //append a new tweet element for each tweet given an array of tweet data
   const renderTweets = function(tweets) {
     $("#tweets-container").empty();
     for (let tweet of tweets) {
       $("#tweets-container").append(createTweetElement(tweet));
     }
-
-    $(".tweet-container").on("mouseenter", function() {
-      $(this).css("box-shadow", "7px 7px #d4d4d4");
-    });
-    $(".tweet-container").on("mouseleave", function() {
-      $(this).css("box-shadow", "none");
-    });
-    $(".response-buttons").on("mouseenter", function() {
-      $(this).css("color", "#f5b800");
-    });
-    $(".response-buttons").on("mouseleave", function() {
-      $(this).css("color", "#2968cb");
-    });
   };
 
   const createTweetElement = function(tweet) {
-    const tweetHTML = `
+    const $tweet = `
+    <article class="tweet-container">
       <div class="tweet-top">
         <div class="top-left-box">
           <img class="avatar" src=${escape(tweet.user.avatars)}></img>
@@ -34,7 +24,7 @@ $(() => {
         </div>
         <span class="user-handle">${escape(tweet.user.handle)}</span>
       </div>
-      <textarea class="display-text" disabled>${escape(
+    <textarea class="display-text" disabled>${escape(
     tweet.content.text
   )}</textarea>
       <div class="tweet-bottom">
@@ -46,13 +36,10 @@ $(() => {
           <button class="response-buttons" type="submit"><i class="fas fa-solid fa-retweet"></i></button>
           <button class="response-buttons" type="submit"><i class="fas fa-solid fa-heart"></i></button>
         </span>
-      </div>`;
+      </div>
+    </article>`;
 
-    const $tweet = $("<article>").addClass("tweet-container");
-
-    const tweetElement = $tweet.append(tweetHTML);
-
-    return tweetElement;
+    return $tweet;
   };
 
   const escape = function(str) {
@@ -73,29 +60,35 @@ $(() => {
   $tweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
+    console.log("serialized:", serializedData);
 
-    if (
-      $("#tweet-text").val().length === 0 ||
-      $("#tweet-text").val() === null
-    ) {
-      $("#too-long").slideUp();
-      $("#empty-input").slideUp();
-      $("#empty-input").text("Cannot submit empty tweet!").slideDown(1000);
-    }
+    const tweetTextVal = $("#tweet-text").val();
+    const $tooLong = $("#too-long");
+    const $emptyInput = $("#empty-input");
 
-    if ($("#tweet-text").val().length > 140) {
-      $("#empty-input").slideUp();
-      $("#too-long").slideUp();
-      $("#too-long")
-        .text("Message too long! Maximum character count: 140.")
+    if (!tweetTextVal || tweetTextVal.length === 0) {
+      $tooLong.slideUp();
+      $emptyInput.slideUp();
+      $emptyInput
+        .html(
+          `<i class="fas fa-exclamation-triangle"></i>Cannot submit empty tweet!<i class="fas fa-exclamation-triangle"></i>`
+        )
         .slideDown(1000);
+      return;
     }
-    if (
-      !($("#tweet-text").val().length === 0) &&
-      !($("#tweet-text").val() === null) &&
-      !($("#tweet-text").val().length > 140)
-    ) {
-      $.post("/tweets/", serializedData).then(loadTweets);
+
+    if (tweetTextVal.length > 140) {
+      $emptyInput.slideUp();
+      $tooLong.slideUp();
+      $tooLong
+        .html(
+          `<i class="fas fa-exclamation-triangle"></i>Message too long! Maximum character count: 140.<i class="fas fa-exclamation-triangle"></i>`
+        )
+        .slideDown(1000);
+      return;
     }
+    $emptyInput.slideUp();
+    $tooLong.slideUp();
+    $.post("/tweets/", serializedData).then(loadTweets);
   });
 });

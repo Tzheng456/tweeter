@@ -2,25 +2,24 @@ nav {
   display: flex;
   color: #ffff;
   height: 120px;
-  background-color: #4056a1;
+  background-color: #f5b800;
   padding-left: 1.5em;
   padding-right: 1.5em;
-}
-
-.box {
-  display: flex;
   z-index: 1;
   position: fixed;
   width: 100%;
   left: 0;
   top: 0;
-  right: 0;
-  bottom: 0;
   font-family: "Bungee", cursive;
   font-size: xx-large;
   align-items: center;
   justify-content: space-between;
+  background-image: url("/images/asfalt-light.png");
 }
+
+/* .box {
+  
+} */
 
 .second-box {
   display: flex;

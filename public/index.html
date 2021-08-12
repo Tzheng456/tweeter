@@ -39,7 +39,7 @@
   
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav class="box">
+    <nav id="box">
       <span>tweeter</span>
       <span class="left-box">
         <span class="first-word">Write <span class="second-word">a new tweet</span></span>
@@ -61,8 +61,7 @@
           <div class="error-message" id="empty-input"></div>
           <div class="error-message" id="too-long"></div>
           <form id="tweet-form">
-            <label id="label" for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text"></textarea>
+            <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
             <div class="below-container">
               <button id="tweet-button" type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
