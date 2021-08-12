@@ -64,7 +64,10 @@ $(() => {
     event.preventDefault();
     const serializedData = $(this).serialize();
     // console.log($("#tweet-text").val().length);
-    if ($("#tweet-text").val().length === 0) {
+    if (
+      $("#tweet-text").val().length === 0 ||
+      $("#tweet-text").val() === null
+    ) {
       alert("Cannot submit empty tweet!");
     }
 
@@ -73,6 +76,7 @@ $(() => {
     }
     if (
       !($("#tweet-text").val().length === 0) &&
+      !($("#tweet-text").val() === null) &&
       !($("#tweet-text").val().length > 140)
     ) {
       $.post("/tweets/", serializedData).then(loadTweets);
