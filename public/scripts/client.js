@@ -14,6 +14,7 @@ $(() => {
     }
   };
 
+  //takes a tweet object, returns an HTML string with data from the tweet object
   const createTweetElement = function(tweet) {
     const $tweet = `
     <article class="tweet-container">
@@ -42,31 +43,39 @@ $(() => {
     return $tweet;
   };
 
+  //escapes a string to prevent XSS vulnerabilities in form entry
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+  //makes an ajax GET request to /tweets to render the tweets on page
   const loadTweets = function() {
     $.ajax("/tweets", { method: "GET" }).then(function(data) {
       renderTweets(data);
     });
   };
 
+  //initialize the page with existing tweets in database
   loadTweets();
 
+  //new-tweet form submission event handler
+  //serialized the form text into query-string and pass the data to an ajax POST request to /tweets if there are no errors
   const $tweetForm = $("#tweet-form");
   $tweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
     console.log("serialized:", serializedData);
 
+    //error handling for empty string or too-long string
     const tweetTextVal = $("#tweet-text").val();
     const $tooLong = $("#too-long");
     const $emptyInput = $("#empty-input");
 
+    //null or empty string error handling
     if (!tweetTextVal || tweetTextVal.length === 0) {
+      //remove any existing error boxes
       $tooLong.slideUp();
       $emptyInput.slideUp();
       $emptyInput
@@ -77,7 +86,9 @@ $(() => {
       return;
     }
 
+    //input length is greater than 140 chars error handling
     if (tweetTextVal.length > 140) {
+      //remove any existing error boxes
       $emptyInput.slideUp();
       $tooLong.slideUp();
       $tooLong
@@ -87,6 +98,9 @@ $(() => {
         .slideDown(1000);
       return;
     }
+
+    //remove any existing error boxes then send POST request with data
+    // => on success, loadTweets
     $emptyInput.slideUp();
     $tooLong.slideUp();
     $.post("/tweets/", serializedData).then(loadTweets);
