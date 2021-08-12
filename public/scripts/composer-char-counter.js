@@ -5,7 +5,7 @@ $(document).ready(function() {
   $("#tweet-text").on("input", function() {
     const textLength = this.value.length;
     //counter
-    const $counter = $(this).siblings(".below-container").children(".counter");
+    const $counter = $(this).siblings(".new-tweet-footer").children(".counter");
 
     //updates the counter text based on length of input text
     $counter.text(140 - textLength);
