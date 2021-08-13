@@ -33,7 +33,7 @@ nav {
   background-color: #f5b800;
 }
 
-.new-tweet-icon {
+#new-tweet-icon {
   display: flex;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
@@ -49,6 +49,28 @@ nav {
   font-weight: 300;
 }
 
+@keyframes updown {
+  0% {
+    transform: translateY(-2%);
+  }
+
+  50% {
+    transform: translateY(10%);
+  }
+
+  100% {
+    transform: translateY(-2%);
+  }
+}
+
+#new-tweet-icon {
+  cursor: pointer;
+}
+
 .arrows-icon {
   color: crimson;
+}
+
+#new-tweet-icon:hover > .arrows-icon {
+  animation: updown 1.25s ease infinite;
 }

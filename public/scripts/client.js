@@ -105,4 +105,13 @@ $(() => {
     $tooLong.slideUp();
     $.post("/tweets/", serializedData).then(loadTweets);
   });
+
+  const $newTweetIcon = $("#new-tweet-icon");
+  $newTweetIcon.on("click", () => {
+    // console.log($(".new-tweet").css());
+    $(".new-tweet").slideToggle(333);
+    // } else {
+    //   $(".new-tweet").slideUp(1000);
+    // }
+  });
 });
