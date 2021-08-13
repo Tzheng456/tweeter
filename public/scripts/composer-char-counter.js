@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-$(document).ready(function() {
+$(() => {
   // --- our code goes here ---
   //input event handler
   $("#tweet-text").on("input", function() {
