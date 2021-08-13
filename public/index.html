@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -33,51 +36,69 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+      integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
-  
+
   <body>
     <!-- Top nav bar (fixed) -->
     <nav id="box">
       <span>tweeter</span>
+      <!--change to button-->
       <span id="new-tweet-icon">
-        <span class="first-word">Write <span class="rest-of-word">a new tweet</span></span>
-        <span class="arrows-icon"><i class="fas fa-angle-double-down fa-sm"></i></span>
-      </nav>
-      <header class="profile-container">
-        <div class="profile">
-          <img src="/images/profile-hex.png"> 
-        </div>
-        <!-- <br> -->
-        <div class="display-name">
-          <h2>Your Name</h2>
-        </div>
-      </header>
-      <!-- Page-specific (main) content here -->
-      <main class="container">
-        <section class="new-tweet">
-          <!-- <h2>Compose Tweet</h2> -->
-          <div class="error-message" id="empty-input"></div>
-          <div class="error-message" id="too-long"></div>
-          <form id="tweet-form">
-            <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
-            <div class="new-tweet-footer">
-              <button id="tweet-button" type="submit">Tweet</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
-            </div>
-          </form>
-        </section>
-        <article id="tweets-container">
-        </article>
-        <button id="to-page-top" type="button">
-          <span class="fa-stack fa-2x">
-            <i class="fas fa-circle fa-stack-2x" style="color:crimson"></i>
-            <i id="top-page-arrows" class="fas fa-angle-double-up fa-stack-1x" style="color:white"></i>
-          </span>
-        </button>
-      </main>
-      <script src="/scripts/composer-char-counter.js"></script>
-      <script src="/scripts/composer.js"></script>
+        <span class="first-word"
+          >Write <span class="rest-of-word">a new tweet</span></span
+        >
+        <span class="arrows-icon"
+          ><i class="fas fa-angle-double-down fa-sm"></i
+        ></span>
+      </span>
+    </nav>
+    <header class="profile-container">
+      <div class="profile">
+        <img src="/images/profile-hex.png" />
+      </div>
+      <!-- <br> -->
+      <div class="display-name">
+        <h2>Your Name</h2>
+      </div>
+    </header>
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class="new-tweet">
+        <!-- <h2>Compose Tweet</h2> -->
+        <div class="error-message" id="empty-input"></div>
+        <div class="error-message" id="too-long"></div>
+        <form id="tweet-form">
+          <textarea
+            name="text"
+            placeholder="What are you humming about?"
+            id="tweet-text"
+          ></textarea>
+          <div class="new-tweet-footer">
+            <button id="tweet-button" type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <article id="tweets-container"></article>
+      <button id="to-page-top" type="button">
+        <span class="fa-stack fa-2x">
+          <i class="fas fa-circle fa-stack-2x" style="color: crimson"></i>
+          <i
+            id="top-page-arrows"
+            class="fas fa-angle-double-up fa-stack-1x"
+            style="color: white"
+          ></i>
+        </span>
+      </button>
+    </main>
+    <script src="/scripts/composer-char-counter.js"></script>
+    <script src="/scripts/composer.js"></script>
   </body>
 </html>

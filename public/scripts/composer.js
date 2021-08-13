@@ -17,9 +17,11 @@ $(() => {
   const $document = $(document);
   $document.on("scroll", () => {
     if ($document.scrollTop() > 0) {
-      $toPageTop.css("display", "block");
+      $newTweetIcon.css("visibility", "hidden");
+      $toPageTop.css("visibility", "visible");
     } else {
-      $toPageTop.css("display", "none");
+      $newTweetIcon.css("visibility", "visible");
+      $toPageTop.css("visibility", "hidden");
     }
   });
 });
