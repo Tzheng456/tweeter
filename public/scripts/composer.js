@@ -14,14 +14,15 @@ $(() => {
     $("html").scrollTop(0);
   });
 
+  //displays a different button on the page based on the scroll state of the page
   const $document = $(document);
   $document.on("scroll", () => {
     if ($document.scrollTop() > 0) {
       $newTweetIcon.css("visibility", "hidden");
-      $toPageTop.css("visibility", "visible");
+      $toPageTop.css("display", "block");
     } else {
       $newTweetIcon.css("visibility", "visible");
-      $toPageTop.css("visibility", "hidden");
+      $toPageTop.css("display", "none");
     }
   });
 });
