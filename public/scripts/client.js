@@ -9,7 +9,6 @@ $(() => {
   //append a new tweet element for each tweet given an array of tweet data
   const renderTweets = function(tweets) {
     $("#tweets-container").empty();
-    // tweets = tweets.reverse();
     for (let tweet of tweets) {
       $("#tweets-container").append(createTweetElement(tweet));
     }
@@ -54,8 +53,7 @@ $(() => {
   //makes an ajax GET request to /tweets to render the tweets on page
   const loadTweets = function() {
     $.ajax("/tweets", { method: "GET" }).then(function(data) {
-      //passes the data array in reverse, such that tweets are rendered in reverse-chronological order
-      renderTweets(data.reverse());
+      renderTweets(data);
     });
   };
 
