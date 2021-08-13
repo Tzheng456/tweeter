@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 $(() => {
   //slides the compose tweet box up or down
   const $newTweetIcon = $("#new-tweet-icon");
