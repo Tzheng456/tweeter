@@ -108,12 +108,17 @@ $(() => {
     $.post("/tweets/", serializedData).then(loadTweets);
   });
 
+  //slides the compose tweet box up or down
   const $newTweetIcon = $("#new-tweet-icon");
+  const $newTweet = $(".new-tweet");
   $newTweetIcon.on("click", () => {
-    // console.log($(".new-tweet").css());
-    $(".new-tweet").slideToggle(333);
-    // } else {
-    //   $(".new-tweet").slideUp(1000);
-    // }
+    $newTweet.slideToggle(333);
+  });
+
+  //button click slides to top of the page and enables the compose tweet box
+  const $toPageTop = $("#to-page-top");
+  $toPageTop.on("click", () => {
+    $newTweet.slideDown();
+    $("html").scrollTop(0);
   });
 });

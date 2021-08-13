@@ -37,6 +37,14 @@
   border: none;
 }
 
+.tweet-top-left-container {
+  display: flex;
+}
+
+.tweet-top-left-container > .username {
+  align-self: center;
+}
+
 .error-message {
   display: none;
   font-weight: 600;
