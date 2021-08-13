@@ -121,4 +121,13 @@ $(() => {
     $newTweet.slideDown();
     $("html").scrollTop(0);
   });
+
+  const $document = $(document);
+  $document.on("scroll", () => {
+    if ($document.scrollTop() > 0) {
+      $toPageTop.css("display", "block");
+    } else {
+      $toPageTop.css("display", "none");
+    }
+  });
 });

@@ -49,6 +49,18 @@ nav {
   font-weight: 300;
 }
 
+#new-tweet-icon {
+  cursor: pointer;
+}
+
+.arrows-icon {
+  color: crimson;
+}
+
+#new-tweet-icon:hover > .arrows-icon {
+  animation: updown 1.25s ease infinite;
+}
+
 @keyframes updown {
   0% {
     transform: translateY(-2%);
@@ -61,16 +73,4 @@ nav {
   100% {
     transform: translateY(-2%);
   }
-}
-
-#new-tweet-icon {
-  cursor: pointer;
-}
-
-.arrows-icon {
-  color: crimson;
-}
-
-#new-tweet-icon:hover > .arrows-icon {
-  animation: updown 1.25s ease infinite;
 }
