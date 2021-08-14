@@ -53,7 +53,8 @@ $(() => {
   //makes an ajax GET request to /tweets to render the tweets on page
   const loadTweets = function() {
     $.ajax("/tweets", { method: "GET" }).then(function(data) {
-      renderTweets(data);
+      //render the reverse of data to make reverse chronological-order
+      renderTweets(data.reverse());
     });
   };
 
